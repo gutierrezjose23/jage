@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAGE</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/logo1.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Canvas de neblina -->
+    <div id="canvas"></div>
+
+    <!-- Menú principal -->
+    <nav class="menu">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección principal -->
+         <section class="container" id="inicio">
+    <h1 id="titulo">JAGE</h1>
+
+    Viaja seguro, cómodo y a tiempo. JAGE, tu transporte privado de confianza.
+    <br>
+    <section id="ubicacion">
+    <button id="btn-ubicacion">SOLICITAR</button>
+    <p id="mensaje-ubicacion"></p>
+    </section>
+
+    
+
+    <!-- Secciones de ejemplo -->
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <p>
+            En JAGE te llevamos a tu destino con seguridad, comodidad y puntualidad. 
+            Traslados privados, viajes al aeropuerto y servicios para eventos, 
+            siempre con atención personalizada.
+        </p>
+    </section>
+
+    <!-- Sección Contacto -->
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Tienes alguna consulta o quieres reservar un servicio? Escríbenos por WhatsApp.</p>
+    
+    <!-- Formulario -->
+    <form id="contactForm">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+        <!-- Botón de WhatsApp -->
+  <a href="https://wa.me/51934613286" target="_blank" class="btn-wsp">
+    Enviar por WhatsApp
+</a>
+
+
+    </form>
+</section>
+
+
+    <!-- Script de neblina -->
+    <script src="fog.js"></script>
+    <!-- Botón de WhatsApp -->
+<a href="https://wa.me/51934613286" target="_blank" class="whatsapp-button">
+    <img src="../img/logo plomo.png" alt="WhatsApp" />
+</a>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+
+/* Imagen de fondo para toda la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/background.png'); /* aquí pones tu imagen */
+    background-size: cover;       /* cubre toda la pantalla */
+    background-position: center;  /* centra la imagen */
+    background-repeat: no-repeat; /* no se repite */
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Menú principal */
+.menu {
+    background-color: rgba(88, 84, 84, 0); /* fondo semitransparente */
+    padding: 15px 0;
+    position: fixed;       /* siempre visible */
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.menu ul li a:hover {
+    color: orange;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;               
+    margin: 0 auto;           
+    padding: 40px;
+    text-align: center;       
+    background-color: #7a727200; 
+    border-radius: 10px;      
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    margin-top: 100px; /* para que no quede detrás del menú fijo */
+}
+
+/* Estilo del título con efecto glow */
+#titulo {
+    font-family: Georgia;
+    font-size: 50px;
+    text-align: center;
+    color: rgb(172, 153, 153);
+    text-shadow: 0 0 10px rgb(202, 175, 175), 0 0 20px rgb(126, 123, 118);
+    animation: glow 1.5s infinite alternate;
+    margin-top: 20px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgb(139, 137, 137), 0 0 10px rgb(0, 0, 0);
+    }
+    100% {
+        text-shadow: 0 0 20px rgb(230, 230, 230), 0 0 30px rgb(233, 232, 231);
+    }
+}
+
+/* Logo visible en la página */
+#logo {
+    width: 150px;             
+    height: auto;             
+    display: block;           
+    margin: 0 auto 20px auto; 
+}
+
+/* Estilo de secciones secundarias */
+section {
+    padding: 100px 20px;
+    color: rgb(119, 114, 114);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 20px;
+}
+
+
+/* Canvas de neblina */
+#canvas {
+    position: fixed;      /* siempre sobre la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;         /* ocupa toda la ventana, no más */
+    z-index: 10;          /* debajo del contenido principal */
+    pointer-events: none; /* permite interactuar con el contenido */
+    overflow: hidden;     /* evita scroll extra */
+}
+
+/* Evitar scroll horizontal o vertical inesperado */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.whatsapp-button {
+    position: fixed;       /* siempre visible */
+    bottom: 20px;          /* distancia desde abajo */
+    right: 20px;           /* distancia desde la derecha */
+    width: 60px;           /* tamaño del botón */
+    height: 60px;
+    z-index: 100;          /* sobre todo el contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.whatsapp-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);  /* efecto al pasar el mouse */
+}
+/* Estilos sección contacto */
+#contacto {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#contacto h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#contacto form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contacto input, #contacto textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-wsp {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #000; /* color negro */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-wsp:hover {
+    background-color: #333;
+}
+
+/* Botón debajo del título */
+.btn-wsp-titulo {
+    display: inline-block;
+    margin-top: 20px;           /* separación del título */
+    padding: 15px 30px;         /* tamaño del botón */
+    background-color: rgba(156, 142, 142, 0.274);     /* color llamativo */
+    color: white;                /* texto blanco */
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;        /* bordes redondeados */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-wsp-titulo:hover {
+    background-color: #0a0909;      /* oscuro al pasar el mouse */
+    transform: scale(1.05);      /* efecto de zoom */
+}
+
+#btn-ubicacion {
+    padding: 12px 25px;
+    background-color: #43464359; /* verde llamativo */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-ubicacion:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+}
