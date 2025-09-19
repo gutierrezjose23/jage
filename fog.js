@@ -55,31 +55,4 @@ const array = [
     new Fog(0, 20, { w: 100, h: 100 }, 0, 0.4)
 ];
 
-CreateNeb();
 
-// --- Botón de ubicación ---
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("btn-ubicacion");
-
-    btn.addEventListener("click", () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                function(position) {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-
-                    // Link de Google Maps
-                    const link = `https://www.google.com/maps?q=${lat},${lon}`;
-                    // Abrir WhatsApp automáticamente
-                    const whatsappLink = `https://wa.me/51934613286?text=${encodeURIComponent("Hola, esta es mi ubicación: " + link)}`;
-                    window.open(whatsappLink, "_blank");
-                },
-                function(error) {
-                    alert("No se pudo obtener la ubicación: " + error.message);
-                }
-            );
-        } else {
-            alert("Tu navegador no soporta Geolocalización.");
-        }
-    });
-});
