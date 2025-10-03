@@ -1,22 +1,25 @@
-
 /* Imagen de fondo para toda la página */
 body {
     margin: 0;
     padding: 0;
-    background-image: url('../img/background.png'); /* aquí pones tu imagen */
-    background-size: cover;       /* cubre toda la pantalla */
-    background-position: center;  /* centra la imagen */
-    background-repeat: no-repeat; /* no se repite */
+    background-image: url('img/fondoDePagina.png');
+    
+     /* Fondo con tu imagen */
+    background-image: url("img/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     font-family: Arial, sans-serif;
+    color: rgb(119, 114, 114);
+    overflow-x: hidden;
 }
-
-
 
 /* Menú principal */
 .menu {
-    background-color: rgba(88, 84, 84, 0); /* fondo semitransparente */
+    background-color: rgba(88, 84, 84, 0);
     padding: 15px 0;
-    position: fixed;       /* siempre visible */
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
@@ -25,7 +28,7 @@ body {
 .menu ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* centra horizontalmente */
+    justify-content: center;
     margin: 0;
     padding: 0;
 }
@@ -47,14 +50,14 @@ body {
 
 /* Contenedor principal */
 .container {
-    width: 80%;               
-    margin: 0 auto;           
+    width: 80%;
+    margin: 0 auto;
     padding: 40px;
-    text-align: center;       
-    background-color: #7a727200; 
-    border-radius: 10px;      
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    margin-top: 100px; /* para que no quede detrás del menú fijo */
+    text-align: center;
+    background-color: #7a727200;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 100px;
 }
 
 /* Estilo del título con efecto glow */
@@ -77,20 +80,19 @@ body {
     }
 }
 
-/* Logo visible en la página */
+/* Logo */
 #logo {
-    width: 150px;             
-    height: auto;             
-    display: block;           
-    margin: 0 auto 20px auto; 
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
 }
 
-/* Estilo de secciones secundarias */
+/* Secciones */
 section {
     padding: 100px 20px;
-    color: rgb(119, 114, 114);
     text-align: center;
-    background-color: rgba(0, 0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0);
 }
 
 section h2 {
@@ -102,58 +104,108 @@ section p {
     font-size: 20px;
 }
 
-
-/* Canvas de neblina */
-#canvas {
-    position: fixed;      /* siempre sobre la pantalla */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;         /* ocupa toda la ventana, no más */
-    z-index: 10;          /* debajo del contenido principal */
-    pointer-events: none; /* permite interactuar con el contenido */
-    overflow: hidden;     /* evita scroll extra */
+/* ---------- Fog ---------- */
+.fogwrapper {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
+  z-index: -1; /* detrás de todo */
+}
+#foglayer_01, #foglayer_02, #foglayer_03 {
+  height: 100%;
+  position: absolute;
+  width: 200%;
+}
+#foglayer_01 .image01, #foglayer_01 .image02,
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02 {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+#foglayer_01 {
+  animation: foglayer_01_opacity 10s linear infinite, foglayer_moveme 15s linear infinite;
+}
+#foglayer_02, #foglayer_03 {
+  animation: foglayer_02_opacity 21s linear infinite, foglayer_moveme 13s linear infinite;
 }
 
-/* Evitar scroll horizontal o vertical inesperado */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
+/* Imágenes de la niebla */
+#foglayer_01 .image01, #foglayer_01 .image02 {
+  background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") center center/cover no-repeat transparent;
 }
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02{
+  background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog2.png") center center/cover no-repeat transparent;
+}
+
+/* ---------- Animaciones de Opacidad ---------- */
+@keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+/* Movimiento */
+@keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
+/* Ajustes móviles */
+@media only screen and (max-width: 767px) {
+    #foglayer_01 .image01, #foglayer_01 .image02,
+    #foglayer_02 .image01, #foglayer_02 .image02,
+    #foglayer_03 .image01, #foglayer_03 .image02 {
+      width: 100%;
+    }
+}
+
+/* WhatsApp */
 .whatsapp-button {
-    position: fixed;       /* siempre visible */
-    bottom: 20px;          /* distancia desde abajo */
-    right: 20px;           /* distancia desde la derecha */
-    width: 60px;           /* tamaño del botón */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
     height: 60px;
-    z-index: 100;          /* sobre todo el contenido */
+    z-index: 200; /* sobre la niebla */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s;
 }
-
 .whatsapp-button img {
     width: 100%;
     height: 100%;
 }
-
 .whatsapp-button:hover {
-    transform: scale(1.1);  /* efecto al pasar el mouse */
+    transform: scale(1.1);
 }
-/* Estilos sección contacto */
+
+/* Contacto */
 #contacto {
     padding: 50px 20px;
     background-color: #f9f9f9;
     text-align: center;
-}
-
-#contacto h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
+    color: #000;
 }
 
 #contacto form {
@@ -174,14 +226,13 @@ html, body {
 .btn-wsp {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #000; /* color negro */
+    background-color: #000;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
-
 .btn-wsp:hover {
     background-color: #333;
 }
@@ -189,25 +240,25 @@ html, body {
 /* Botón debajo del título */
 .btn-wsp-titulo {
     display: inline-block;
-    margin-top: 20px;           /* separación del título */
-    padding: 15px 30px;         /* tamaño del botón */
-    background-color: rgba(156, 142, 142, 0.274);     /* color llamativo */
-    color: white;                /* texto blanco */
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: rgba(156, 142, 142, 0.274);
+    color: white;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 10px;        /* bordes redondeados */
+    border-radius: 10px;
     transition: transform 0.2s, background-color 0.2s;
 }
-
 .btn-wsp-titulo:hover {
-    background-color: #0a0909;      /* oscuro al pasar el mouse */
-    transform: scale(1.05);      /* efecto de zoom */
+    background-color: #0a0909;
+    transform: scale(1.05);
 }
 
+/* Botón ubicación */
 #btn-ubicacion {
     padding: 12px 25px;
-    background-color: #43464359; /* verde llamativo */
+    background-color: #43464359;
     color: white;
     font-weight: bold;
     border: none;
@@ -215,7 +266,6 @@ html, body {
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
 }
-
 #btn-ubicacion:hover {
     background-color: #000000;
     transform: scale(1.05);

@@ -13,8 +13,22 @@
 </head>
 <body>
     
-    <!-- Canvas de neblina -->
-     <div id="canvas"></div>
+    <!-- Capa de neblina -->
+    <div id="canvas"></div>
+
+    <!-- Capas extra de neblina -->
+    <div class="fogwrapper">
+  <div id="foglayer_01" class="fog">
+    <div class="image01"></div><div class="image02"></div>
+  </div>
+  <div id="foglayer_02" class="fog">
+    <div class="image01"></div><div class="image02"></div>
+  </div>
+  <div id="foglayer_03" class="fog">
+    <div class="image01"></div><div class="image02"></div>
+  </div>
+</div>
+
 
     <!-- Menú principal -->
     <nav class="menu">
@@ -26,20 +40,18 @@
     </nav>
 
     <!-- Sección principal -->
-         <section class="container" id="inicio">
-    <h1 id="titulo" >JAGE</h1>
-
-    Viaja seguro, cómodo y a tiempo. JAGE, tu transporte privado de confianza.
-    <br>
-    <section id="ubicacion">
-    <button id="btn-ubicacion" onclick="handleClick()">SOLICITAR</button>
-    <p id="mensaje-ubicacion"></p>
-    <script src="ubicacion.js"></script>
+    <section class="container" id="inicio">
+        <h1 id="titulo">JAGE</h1>
+        Viaja seguro, cómodo y a tiempo. JAGE, tu transporte privado de confianza.
+        <br>
+        <section id="ubicacion">
+            <button id="btn-ubicacion" onclick="handleClick()">ENVIAR UBICACION</button>
+            <p id="mensaje-ubicacion"></p>
+            <script src="ubicacion.js"></script>
+        </section>
     </section>
 
-    
-
-    <!-- Secciones de ejemplo -->
+    <!-- Sección servicios -->
     <section id="servicios">
         <h2>Servicios</h2>
         <p>
@@ -49,31 +61,30 @@
         </p>
     </section>
 
-    <!-- Sección Contacto -->
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p>¿Tienes alguna consulta o quieres reservar un servicio? Escríbenos por WhatsApp.</p>
-    
-    <!-- Formulario -->
-    <form id="contactForm">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo" required>
-        <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
-        <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/51934613286" target="_blank" class="btn-wsp">
-    Enviar por WhatsApp
-</a>
+    <!-- Sección contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna consulta o quieres reservar un servicio? Escríbenos por WhatsApp.</p>
+        
+        <!-- Formulario -->
+        <form id="contactForm">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo" required>
+            <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+            
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/51934613286" target="_blank" class="btn-wsp">
+                Enviar por WhatsApp
+            </a>
+        </form>
+    </section>
 
-
-    </form>
-</section>
-
-
-    <!-- Script de neblina -->
+    <!-- Script de neblina (opcional si usas animación JS) -->
     <script src="fog.js"></script>
-    <!-- Botón de WhatsApp -->
-<a href="https://wa.me/51934613286" target="_blank" class="whatsapp-button">
-    <img src="../img/logo plomo.png" alt="WhatsApp" />
-</a>
+
+    <!-- Botón de WhatsApp fijo -->
+    <a href="https://wa.me/51934613286" target="_blank" class="whatsapp-button">
+        <img src="../img/logo plomo.png" alt="WhatsApp" />
+    </a>
 </body>
 </html>
