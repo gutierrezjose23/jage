@@ -1,0 +1,20 @@
+CREATE TABLE reservations (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    service VARCHAR(40) NOT NULL,
+    origin VARCHAR(180) NOT NULL,
+    destination VARCHAR(180) NOT NULL,
+    travel_date DATE NOT NULL,
+    travel_time TIME NOT NULL,
+    passengers SMALLINT NOT NULL,
+    notes VARCHAR(1000) NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'pendiente',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY ix_reservations_user_id (user_id),
+    KEY ix_reservations_created_at (created_at),
+    CONSTRAINT fk_reservations_user FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+    CONSTRAINT chk_reservations_service CHECK (service IN ('privado', 'huaral-lima', 'aeropuerto')),
+    CONSTRAINT chk_reservations_status CHECK (status IN ('pendiente', 'confirmada', 'cancelada', 'completada')),
+    CONSTRAINT chk_reservations_passengers CHECK (passengers BETWEEN 1 AND 8)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
